@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MachineFlo — Turn Your Asset Inventory Into Cash Flow Faster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Barlow:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   MACHINEFLO — STRICT DESIGN SYSTEM
+   
+   BLUE   #1565C0  — Nav + CTA buttons + accents only
+   WHITE  #FFFFFF  — Primary section bg (sections 1,3,5)
+   LGREY  #F4F6F9  — Alternate section bg (sections 2,4,6)
+   DARK   #1E2A3A  — One feature-dark section + footer
+   
+   TEXT ON WHITE/GREY  → #1E2A3A  (dark navy)
+   TEXT ON DARK        → #FFFFFF
+   TEXT ON BLUE        → #FFFFFF
+   
+   ACCENT BLUE (readable on white) → #1565C0
+   MUTED TEXT  → #5A6A7E
+   BORDER      → #DDE3EE
+   BLUE TINT   → #EBF2FF
+   
+   NO red/orange anywhere in layout.
+═══════════════════════════════════════════════ */
+:root{
+  --blue:    #1565C0;
+  --blue2:   #0D47A1;
+  --blue-lt: #EBF2FF;
+  --white:   #FAFBFD;
+  --lgrey:   #F0F3F8;
+  --dark:    #1E2A3A;
+  --dark2:   #152031;
+  --txt:     #1E2A3A;
+  --muted:   #5A6A7E;
+  --border:  #DDE3EE;
+  --border2: #E8EDF5;
+  --gold:    #F9A825;
+  --wa:      #25D366;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--txt);font-family:'Barlow',sans-serif;font-size:16px;line-height:1.65;overflow-x:clip;}
+
+/* ── WA FLOAT ── */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:999;background:var(--wa);border-radius:50%;width:54px;height:54px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s;animation:waPop .5s ease both 2s;}
+.wa-float:hover{transform:scale(1.1);}
+.wa-float svg{width:26px;height:26px;fill:#fff;}
+.wa-tip{position:absolute;right:64px;top:50%;transform:translateY(-50%);background:var(--dark);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.04em;white-space:nowrap;padding:6px 12px;pointer-events:none;opacity:0;transition:opacity .2s;border-radius:3px;}
+.wa-float:hover .wa-tip{opacity:1;}
+@keyframes waPop{from{opacity:0;transform:scale(.3);}to{opacity:1;transform:scale(1);}}
+
+/* ══════════════════════════
+   NAV — BLUE #1565C0
+══════════════════════════ */
+nav{
+  background:#FFFFFF;
+  border-bottom:3px solid var(--blue);
+  padding:0 56px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:66px;position:sticky;top:0;z-index:200;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+.logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;letter-spacing:.03em;text-decoration:none;color:var(--blue);text-transform:uppercase;line-height:1;}
+.logo em{color:#90CAF9;font-style:normal;}
+.logo-s{font-size:8px;font-family:'Barlow',sans-serif;font-weight:600;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;display:block;margin-top:-4px;}
+.nav-r{display:flex;align-items:center;gap:24px;}
+.nav-a{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--dark);text-decoration:none;transition:color .18s;}
+.nav-a:hover{color:var(--blue);}
+.nav-btn{background:var(--blue);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:9px 20px;text-decoration:none;transition:background .18s;display:inline-block;border-radius:3px;}
+.nav-btn:hover{background:var(--blue2);}
+
+/* ══════════════════════════
+   HERO — BLUE #1565C0
+   Section 1
+══════════════════════════ */
+.hero{
+  background:linear-gradient(135deg, var(--blue2) 0%, var(--blue) 60%, #1976D2 100%);
+  position:relative;overflow:hidden;
+}
+.hero::after{content:'';position:absolute;bottom:-60px;right:-60px;width:440px;height:440px;background:rgba(255,255,255,.04);border-radius:50%;pointer-events:none;}
+.hero-in{display:grid;grid-template-columns:1fr 390px;gap:52px;align-items:start;max-width:1180px;margin:0 auto;padding:68px 56px 80px;position:relative;z-index:1;}
+
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.9);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;margin-bottom:22px;border-radius:2px;}
+.dot{width:6px;height:6px;background:#90CAF9;border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(1.5);}}
+
+h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(40px,5.5vw,70px);line-height:.97;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:16px;}
+h1 .hl{color:#90CAF9;}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.78);margin-bottom:32px;line-height:1.6;max-width:520px;}
+.hero-ctas{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+
+/* CTA buttons */
+.btn-white{background:#fff;color:var(--blue);font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:.07em;text-transform:uppercase;padding:13px 30px;text-decoration:none;display:inline-block;transition:background .18s,transform .15s;border-radius:3px;}
+.btn-white:hover{background:#EBF2FF;transform:translateY(-2px);}
+.btn-ghost{background:transparent;color:rgba(255,255,255,.82);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:.07em;text-transform:uppercase;padding:11px 22px;display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.35);border-radius:3px;cursor:default;-webkit-appearance:none;}
+.btn-ghost svg{width:15px;height:15px;fill:currentColor;}
+
+/* Price card */
+.pcard{background:var(--white);border-top:4px solid var(--blue);box-shadow:0 16px 56px rgba(0,0,0,.18);animation:slideR .7s ease both .2s;overflow:hidden;border-radius:0 0 8px 8px;}
+@keyframes slideR{from{opacity:0;transform:translateX(36px);}to{opacity:1;transform:translateX(0);}}
+.pcard-hd{background:var(--dark);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:9px 20px;}
+.ptabs{display:flex;border-bottom:1px solid var(--border2);}
+.ptab{flex:1;padding:9px 4px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;letter-spacing:.05em;text-transform:uppercase;border:none;border-bottom:2px solid transparent;color:var(--muted);cursor:pointer;text-align:center;transition:all .18s;background:var(--lgrey);}
+.ptab.on{background:var(--white);color:var(--blue);border-bottom-color:var(--blue);}
+.pbox{display:none;padding:16px 20px 0;}
+.pbox.show{display:block;}
+.p-lim{background:var(--blue-lt);border-left:3px solid var(--blue);padding:4px 10px;font-size:10px;font-weight:700;color:var(--blue2);font-family:'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;display:inline-block;border-radius:0 2px 2px 0;}
+.p-lim.gold{background:#FFF8E1;border-left-color:#F9A825;color:#E65100;}
+.p-lbl{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+.p-was{font-size:12px;color:var(--muted);text-decoration:line-through;margin-bottom:2px;}
+.p-price{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:56px;line-height:1;color:var(--txt);letter-spacing:-.02em;}
+.p-price sup{font-size:22px;color:var(--blue);vertical-align:super;}
+.p-price sub{font-size:14px;font-weight:600;color:var(--muted);vertical-align:baseline;}
+.p-wk{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;color:var(--blue);margin:4px 0 3px;}
+.p-desc{font-size:12px;color:var(--muted);margin-bottom:3px;line-height:1.5;}
+.p-cap{display:inline-flex;align-items:center;gap:5px;background:var(--blue-lt);color:var(--blue2);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.04em;padding:4px 10px;border-radius:3px;margin-top:6px;}
+.p-note{font-size:11px;color:var(--muted);font-style:italic;margin-top:3px;}
+.btn-enquire{display:block;background:var(--blue);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;padding:11px;text-align:center;text-decoration:none;margin:12px 20px 0;border-radius:3px;transition:background .18s;}
+.btn-enquire:hover{background:var(--blue2);}
+.pdiv{height:1px;background:var(--border2);margin:12px 20px;}
+.pfeat{list-style:none;padding:0 20px 16px;}
+.pfeat li{display:flex;align-items:flex-start;gap:8px;font-size:12px;font-weight:500;color:var(--txt);padding:5px 0;border-bottom:1px solid var(--border2);line-height:1.4;}
+.pfeat li:last-child{border-bottom:none;}
+.ck{width:16px;height:16px;background:var(--blue);color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;border-radius:2px;}
+
+/* ══════════════════════════
+   PORTAL STRIP — LGREY #F4F6F9
+   Between hero and section 1
+══════════════════════════ */
+.ps{
+  background:#E8EEF7;
+  border-top:1px solid #D0DAE8;
+  border-bottom:1px solid #D0DAE8;
+  padding:12px 56px;
+  display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
+}
+.ps-lbl{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.pbadge{display:inline-flex;align-items:center;gap:5px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:12px;letter-spacing:.03em;text-transform:uppercase;background:var(--white);border:1px solid var(--border);color:var(--txt);padding:4px 10px;border-radius:3px;}
+.pbadge .pi{width:18px;height:18px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-size:7px;font-weight:900;flex-shrink:0;border-radius:2px;}
+.ps-sep{color:var(--border);font-size:14px;}
+
+/* ══════════════════════════
+   SECTION COMMONS
+══════════════════════════ */
+.sec{padding:68px 56px;}
+.sec-in{max-width:1180px;margin:0 auto;}
+
+/* Section backgrounds — strict alternating */
+.bg-white{background:var(--white);}
+.bg-lgrey{background:var(--lgrey);}
+.bg-dark{background:var(--dark);}
+.bg-blue{background:var(--blue);}
+
+/* Eyebrows */
+.ey{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.ey::before{content:'';width:20px;height:2px;background:var(--blue);display:block;flex-shrink:0;}
+.ey-lt{color:rgba(255,255,255,.5);}
+.ey-lt::before{background:rgba(255,255,255,.4);}
+
+/* Section headings */
+h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(28px,3.5vw,46px);color:var(--txt);text-transform:uppercase;line-height:1.02;letter-spacing:-.01em;margin-bottom:10px;}
+h2 .ac{color:var(--blue);}
+h2.wh{color:#fff;}
+h2.wh .ac{color:#90CAF9;}
+
+/* Body descriptions */
+.sdesc{font-size:15px;color:var(--muted);max-width:580px;line-height:1.72;}
+.sdesc.lt{color:rgba(255,255,255,.62);}
+
+/* ══════════════════════════
+   SECTION 1 — PROBLEM — WHITE
+══════════════════════════ */
+.prob-intro{
+  background:linear-gradient(180deg, #E8EEF7 0%, var(--white) 120px);
+  padding-top:0;
+}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+.prob-card{
+  background:#FFFFFF;border:1px solid #D8E2EF;
+  border-top:3px solid var(--blue);
+  padding:28px 24px;border-radius:5px;
+  transition:box-shadow .2s,transform .2s;
+}
+.prob-card:nth-child(2){border-top-color:#1976D2;}
+.prob-card:nth-child(3){border-top-color:#0D47A1;}
+.prob-card:hover{box-shadow:0 6px 24px rgba(21,101,192,.10);transform:translateY(-3px);}
+.prob-num{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.prob-card h4{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;text-transform:uppercase;color:var(--txt);margin-bottom:8px;}
+.prob-card p{font-size:13px;color:var(--muted);line-height:1.7;}
+
+/* ══════════════════════════
+   SECTION 2 — WHAT WE DO — LGREY
+══════════════════════════ */
+.wedo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+.wedo-card{
+  background:#FFFFFF;border:1px solid #D8E2EF;
+  border-left:3px solid var(--blue);
+  padding:28px 24px;border-radius:5px;
+  transition:box-shadow .2s,transform .2s;
+}
+.wedo-card:hover{box-shadow:0 6px 20px rgba(21,101,192,.08);transform:translateY(-3px);}
+.wedo-n{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--blue);text-transform:uppercase;margin-bottom:10px;}
+.wedo-card h4{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:19px;text-transform:uppercase;color:var(--txt);margin-bottom:8px;line-height:1.15;}
+.wedo-card p{font-size:13px;color:var(--muted);line-height:1.7;}
+
+/* ══════════════════════════
+   SECTION 3 — PLATFORM INTEL — DARK
+══════════════════════════ */
+.hf-wrap{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  padding:36px;border-radius:8px;
+  margin-top:0;
+}
+.hf-tag{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#90CAF9;background:rgba(255,255,255,.07);padding:4px 12px;display:inline-block;margin-bottom:14px;border-radius:2px;}
+.hf-wrap h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:24px;text-transform:uppercase;color:#fff;margin-bottom:8px;line-height:1.1;}
+.hf-wrap > p{font-size:14px;color:rgba(255,255,255,.60);max-width:600px;line-height:1.7;margin-bottom:22px;}
+.hf-items{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.hf-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:20px;border-radius:5px;}
+.hf-item h5{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:#fff;margin-bottom:6px;}
+.hf-item h5 span{color:#90CAF9;}
+.hf-item p{font-size:12px;color:rgba(255,255,255,.52);line-height:1.65;}
+
+/* ══════════════════════════
+   SECTION 4 — WORKFLOW — WHITE
+══════════════════════════ */
+.wf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:40px;background:var(--border);}
+.wf-step{background:var(--white);padding:28px 22px;transition:background .2s;}
+.wf-step:hover{background:var(--blue-lt);}
+.wf-n{font-family:'Space Mono',sans-serif;font-size:34px;font-weight:700;color:var(--border);line-height:1;margin-bottom:12px;}
+.wf-step h4{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:17px;text-transform:uppercase;color:var(--txt);margin-bottom:8px;line-height:1.15;}
+.wf-step p{font-size:13px;color:var(--muted);line-height:1.65;}
+.wf-step p strong{color:var(--blue);}
+
+/* ══════════════════════════
+   SECTION 5 — FEATURES — LGREY
+══════════════════════════ */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:40px;background:var(--border);}
+.fc{padding:28px 24px;background:#FFFFFF;transition:background .2s;}
+.fc:hover{background:#E8EEF7;}
+.fc-n{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--blue);text-transform:uppercase;margin-bottom:10px;}
+.fc-icon{width:42px;height:42px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px;border-radius:5px;}
+.fc h4{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:17px;text-transform:uppercase;color:var(--txt);margin-bottom:8px;line-height:1.15;}
+.fc p{font-size:13px;color:var(--muted);line-height:1.65;}
+.art-cta{background:var(--blue-lt);border-left:3px solid var(--blue);padding:10px 12px;margin-top:10px;border-radius:0 3px 3px 0;}
+.art-cta p{font-size:11px;color:var(--muted);margin-bottom:5px;}
+.art-cta a{display:inline-flex;align-items:center;gap:5px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--blue2);text-decoration:none;}
+.art-cta a svg{width:12px;height:12px;fill:currentColor;}
+
+/* ══════════════════════════
+   SECTION 6 — COMPARISON — WHITE
+══════════════════════════ */
+.cmp-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:6px;margin-top:40px;}
+.cmp-scroll-hint{display:none;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);text-align:center;padding:8px;background:var(--blue-lt);}
+table.cmp{width:100%;border-collapse:collapse;min-width:520px;}
+.cmp thead tr{background:var(--dark);}
+.cmp th{padding:13px 18px;text-align:left;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);}
+.cmp th.cb{background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);}
+.cmp th.cg{background:var(--blue);color:#fff;font-size:13px;}
+.cmp tbody tr{border-bottom:1px solid var(--border2);}
+.cmp tbody tr:last-child{border-bottom:none;}
+.cmp tbody tr:nth-child(even) td{background:var(--lgrey);}
+.cmp td{padding:13px 18px;font-size:13px;vertical-align:middle;}
+.cmp td:first-child{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--txt);}
+.cmp td.cb{color:var(--muted);background:#F8F9FC;}
+.cmp td.cg{font-weight:600;color:var(--txt);background:var(--blue-lt);}
+.bign{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;display:block;line-height:1.1;}
+.cost-bad{color:#2D3748;}
+.cost-good{color:var(--blue2);}
+
+/* ROI block */
+.roi-block{background:var(--dark);padding:40px;margin-top:20px;border-left:4px solid var(--blue);border-radius:5px;}
+.roi-in{display:flex;gap:28px;align-items:center;}
+.roi-ico{font-size:42px;flex-shrink:0;}
+.roi-pre{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#90CAF9;margin-bottom:6px;}
+.roi-main{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(20px,2.5vw,34px);line-height:1.05;color:#fff;text-transform:uppercase;margin-bottom:7px;}
+.roi-main em{color:#90CAF9;font-style:normal;}
+.roi-sub{font-size:13px;color:rgba(255,255,255,.55);line-height:1.65;max-width:440px;}
+
+/* ══════════════════════════
+   SECTION 7 — REVIEWS — LGREY
+══════════════════════════ */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;}
+.rv-card{
+  background:#FFFFFF;border-radius:8px;
+  border:1px solid #D8E2EF;
+  box-shadow:0 2px 12px rgba(0,0,0,.05);
+  padding:22px 20px;display:flex;flex-direction:column;gap:14px;
+  transition:transform .2s,box-shadow .2s;
+}
+.rv-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(21,101,192,.09);}
+.rv-stars{color:var(--gold);font-size:14px;letter-spacing:2px;}
+.rv-text{font-size:13px;color:var(--muted);line-height:1.75;flex:1;}
+.rv-author{display:flex;align-items:center;gap:10px;}
+.rv-avatar{width:36px;height:36px;background:var(--blue);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:50%;}
+.rv-name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;text-transform:uppercase;color:var(--txt);letter-spacing:.02em;}
+.rv-role{font-size:10px;color:var(--muted);line-height:1.4;margin-top:1px;}
+.rv-platform{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);background:var(--blue-lt);border-left:2px solid var(--blue);padding:3px 8px;align-self:flex-start;border-radius:0 2px 2px 0;}
+
+/* Trust bar */
+.trust-bar{display:grid;grid-template-columns:repeat(4,1fr);margin-top:32px;background:var(--dark);border-radius:6px;overflow:hidden;}
+.trust-item{padding:24px 20px;text-align:center;}
+.trust-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:40px;color:#90CAF9;line-height:1;margin-bottom:4px;}
+.trust-lbl{font-size:11px;color:rgba(255,255,255,.45);line-height:1.5;}
+.trust-div{width:1px;background:rgba(255,255,255,.08);margin:16px 0;}
+
+/* ══════════════════════════
+   SECTION 8 — AUDIT FORM — BLUE
+══════════════════════════ */
+.cta-sec{background:var(--blue);padding:68px 56px;text-align:center;position:relative;overflow:hidden;}
+.cta-sec::before{content:'';position:absolute;top:-40px;right:-40px;width:300px;height:300px;background:rgba(255,255,255,.04);border-radius:50%;pointer-events:none;}
+.cta-sec::after{content:'';position:absolute;bottom:-50px;left:-30px;width:240px;height:240px;background:rgba(255,255,255,.03);border-radius:50%;pointer-events:none;}
+.cta-in{position:relative;z-index:1;}
+.cta-in h2{color:#fff;margin-bottom:10px;}
+.cta-sub{font-size:17px;color:rgba(255,255,255,.75);margin-bottom:28px;font-style:italic;}
+.intake-form{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:28px;margin:0 auto 18px;max-width:680px;}
+.intake-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:14px;}
+.intake-field{display:flex;flex-direction:column;gap:4px;}
+.intake-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+.intake-input{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:10px 12px;font-family:'Barlow',sans-serif;font-size:14px;color:#fff;outline:none;transition:border-color .18s;}
+.intake-input::placeholder{color:rgba(255,255,255,.3);}
+.intake-input:focus{border-color:rgba(255,255,255,.7);}
+.intake-btn{width:100%;background:#fff;color:var(--blue);font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:17px;letter-spacing:.07em;text-transform:uppercase;padding:14px;border:none;border-radius:4px;cursor:pointer;transition:background .18s;}
+.intake-btn:hover{background:#EBF2FF;}
+.intake-note{font-size:11px;color:rgba(255,255,255,.4);margin-top:10px;text-align:center;}
+.btn-email{display:inline-block;background:transparent;color:rgba(255,255,255,.75);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.07em;text-transform:uppercase;padding:10px 24px;text-decoration:none;border:1.5px solid rgba(255,255,255,.3);border-radius:3px;transition:border-color .18s;}
+.btn-email:hover{border-color:#fff;color:#fff;}
+.cta-email-note{margin-top:10px;font-size:12px;color:rgba(255,255,255,.42);}
+.cta-email-note strong{color:rgba(255,255,255,.75);}
+
+/* ══════════════════════════
+   FAQ — DARK
+══════════════════════════ */
+.faq-sec{background:var(--dark);padding:68px 56px;}
+.faq-inner{max-width:1180px;margin:0 auto;}
+.faq-ey{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#90CAF9;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.faq-ey::before{content:'';width:20px;height:2px;background:#90CAF9;display:block;}
+.faq-h{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(24px,2.8vw,38px);color:#fff;text-transform:uppercase;line-height:1.05;margin-bottom:4px;}
+.faq-h span{color:#90CAF9;}
+.faq-sub{font-size:13px;color:rgba(255,255,255,.35);margin-bottom:26px;}
+.faq-item{border:1px solid rgba(255,255,255,.08);margin-bottom:2px;border-radius:3px;overflow:hidden;}
+.faq-q{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.02em;color:#fff;padding:15px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:background .18s;background:rgba(255,255,255,.03);}
+.faq-q:hover{background:rgba(255,255,255,.06);}
+.faq-q.open{background:var(--blue);color:#fff;}
+.faq-icon{font-size:18px;font-weight:900;flex-shrink:0;color:#90CAF9;line-height:1;transition:transform .25s;}
+.faq-q.open .faq-icon{transform:rotate(45deg);color:#fff;}
+.faq-a{display:none;padding:14px 20px 18px;font-size:13px;color:rgba(255,255,255,.58);line-height:1.75;border-top:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02);}
+.faq-a.open{display:block;}
+
+/* ══════════════════════════
+   FOOTER — DARK2 (slightly darker than dark)
+══════════════════════════ */
+footer{background:var(--dark2);}
+.ft-main{max-width:1180px;margin:0 auto;padding:48px 56px 32px;}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:32px;}
+.ft-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:24px;text-transform:uppercase;color:#fff;letter-spacing:.03em;margin-bottom:8px;}
+.ft-logo em{color:#90CAF9;font-style:normal;}
+.ft-brand-desc{font-size:13px;color:rgba(255,255,255,.42);line-height:1.7;max-width:300px;margin-top:8px;}
+.ft-col h5{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px;}
+.ft-col ul{list-style:none;}
+.ft-col ul li{margin-bottom:7px;}
+.ft-col ul li a{font-size:13px;color:rgba(255,255,255,.58);text-decoration:none;transition:color .18s;}
+.ft-col ul li a:hover{color:#fff;}
+.ft-contact-num{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;color:#90CAF9;letter-spacing:.02em;text-decoration:none;display:flex;align-items:center;gap:6px;margin-bottom:6px;transition:color .18s;}
+.ft-contact-num:hover{color:#fff;}
+.ft-contact-email{font-size:13px;color:rgba(255,255,255,.52);text-decoration:none;transition:color .18s;}
+.ft-contact-email:hover{color:#fff;}
+.ft-divider{height:1px;background:rgba(255,255,255,.07);margin:0 56px;}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;max-width:1180px;margin:0 auto;padding:20px 56px 28px;}
+.ft-copy{font-size:11px;color:rgba(255,255,255,.28);}
+.ft-links{display:flex;gap:18px;}
+.ft-links a{font-size:11px;color:rgba(255,255,255,.32);text-decoration:none;transition:color .18s;}
+.ft-links a:hover{color:rgba(255,255,255,.7);}
+
+/* Disclaimer */
+.disclaimer{background:#0E1620;padding:14px 56px;}
+.disclaimer p{max-width:1180px;margin:0 auto;font-size:10px;color:rgba(255,255,255,.22);line-height:1.7;text-align:center;}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease;}
+.rv.in{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}
+.d2{transition-delay:.2s;}
+.d3{transition-delay:.3s;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:0 16px;}
+  .hero-in{grid-template-columns:1fr;padding:40px 16px 50px;gap:28px;}
+  .sec{padding:52px 16px;}
+  .faq-sec{padding:52px 16px;}
+  .cta-sec{padding:52px 16px;}
+  .prob-grid,.wedo-grid,.reviews-grid,.feat-grid,.hf-items,.wf-grid{grid-template-columns:1fr;}
+  .trust-bar{grid-template-columns:1fr 1fr;}
+  .trust-div{display:none;}
+  .intake-grid{grid-template-columns:1fr;}
+  .roi-in{flex-direction:column;}
+  .ft-grid{grid-template-columns:1fr;}
+  .ft-main{padding:36px 16px 24px;}
+  .ft-divider{margin:0 16px;}
+  .ft-bottom{flex-direction:column;text-align:center;padding:16px 16px 22px;}
+  .ft-links{justify-content:center;}
+  .disclaimer{padding:12px 16px;}
+  .ps{padding:10px 16px;}
+  .wa-float{bottom:16px;right:12px;width:50px;height:50px;}
+  .nav-a{display:none;}
+  .cmp-scroll-hint{display:block;}
+  table.cmp{min-width:460px;}
+}
+</style>
+</head>
+<body>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/61XXXXXXXX/?text=I%20want%20a%20free%20listing%20audit%20for%20my%20yard" target="_blank" rel="noopener">
+  <div class="wa-tip">Chat on WhatsApp</div>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- ════════ NAV — BLUE ════════ -->
+<nav>
+  <div>
+    <a href="#" class="logo">MACHINE<em>FLO</em></a>
+    <span class="logo-s">Marketplace Optimisation for Heavy Machinery Dealers</span>
+  </div>
+  <div class="nav-r">
+    <a href="#problem" class="nav-a">The Problem</a>
+    <a href="#pricing" class="nav-a">Pricing</a>
+    <a href="#reviews" class="nav-a">Reviews</a>
+    <a href="#contact" class="nav-a">Contact</a>
+    <a href="#audit" class="nav-btn">Free Audit →</a>
+  </div>
+</nav>
+
+<!-- ════════ HERO — BLUE ════════ -->
+<div class="hero">
+  <div class="hero-in">
+    <div>
+      <div class="hero-badge"><div class="dot"></div> Right Now, A Buyer Is Searching For Your Machine. Are You Showing Up?</div>
+      <h1>A Buyer Searched<br>For Your Machine<br><span class="hl">At 9am. Did They<br>Find You?</span></h1>
+      <p class="hero-sub">Most dealers are paying thousands in marketplace subscriptions and getting three calls a week. Our clients send us a photo before they leave the yard. By the next morning, the listing is live, optimised, and ranking. By lunchtime, the phone rings.</p>
+      <div class="hero-ctas">
+        <a href="#audit" class="btn-white">Request Free Inventory Audit →</a>
+        <button type="button" class="btn-ghost">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6zm2-5h8v1.5H8V15zm0-3h8v1.5H8V12zm0-3h4v1.5H8V9z"/></svg>
+          View Sample Audit Report
+        </button>
+      </div>
+    </div>
+
+    <!-- PRICE CARD — WHITE -->
+    <div class="pcard">
+      <div class="pcard-hd">🔥 Specialised Equipment Optimisation Plans</div>
+      <div class="ptabs">
+        <div class="ptab on" onclick="sw('one')">Single Platform</div>
+        <div class="ptab" onclick="sw('two')">Two Platforms</div>
+        <div class="ptab" onclick="sw('three')">Multi-Platform</div>
+      </div>
+
+      <div class="pbox show" id="p-one">
+        <div class="p-lim">⏳ Limited Period Offer</div>
+        <div class="p-lbl">Single Platform Specialist</div>
+        <div class="p-was">Normally $599 / month</div>
+        <div class="p-price"><sup>$</sup>399<sub> / mo</sub></div>
+        <div class="p-wk">= Just $92 per week</div>
+        <div class="p-desc">Choose any one platform — Machines4U, Industry Search, AgTrader, TradeEarthmovers, TradeTrucks, HospitalityHub, or MedSearch.</div>
+        <div class="p-cap">📋 Up to 20 active listings</div>
+        <p class="p-note">Need more listings? Request a custom quote.</p>
+        <a href="#audit" class="btn-enquire">Enquire Now →</a>
+      </div>
+
+      <div class="pbox" id="p-two">
+        <div class="p-lim">⏳ Limited Period Offer</div>
+        <div class="p-lbl">Dual-Platform Accelerator</div>
+        <div class="p-was">Normally $999 / month</div>
+        <div class="p-price"><sup>$</sup>699<sub> / mo</sub></div>
+        <div class="p-wk">= Just $161 per week</div>
+        <div class="p-desc">Any two platforms synced and managed. Perfect for yards splitting inventory across heavy plant, transport, agriculture, or specialised equipment.</div>
+        <div class="p-cap">📋 Up to 35 active listings</div>
+        <p class="p-note">Spread across both platforms however you choose. Need more? Request a custom quote.</p>
+        <a href="#audit" class="btn-enquire">Enquire Now →</a>
+      </div>
+
+      <div class="pbox" id="p-three">
+        <div class="p-lim gold">🏆 The Ultimate Industrial Package</div>
+        <div class="p-lbl">Triple-Platform Powerhouse</div>
+        <div class="p-was">Normally $1,499 / month</div>
+        <div class="p-price"><sup>$</sup>999<sub> / mo</sub></div>
+        <div class="p-wk">= Just $230 per week</div>
+        <div class="p-desc">Three major platforms — complete digital management for large dealerships, brokers, and national OEMs.</div>
+        <div class="p-cap">📋 Up to 60 active listings</div>
+        <p class="p-note">Need more listings? Request a custom quote.</p>
+        <a href="#audit" class="btn-enquire">Enquire Now →</a>
+      </div>
+
+      <div class="pdiv"></div>
+      <ul class="pfeat">
+        <li><div class="ck">✓</div> <strong>Daily optimisation — never lose your position, never get buried</strong></li>
+        <li><div class="ck">✓</div> Full technical hard-filter mapping from spec plate</li>
+        <li><div class="ck">✓</div> Active Spotlight &amp; Boost credit management</li>
+        <li><div class="ck">✓</div> Image cleanup &amp; spec overlays on every listing</li>
+        <li><div class="ck">✓</div> WhatsApp or email → live within 24 hours</li>
+        <li><div class="ck">✓</div> Platform content &amp; articles — request a quote</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ PORTAL STRIP — LIGHT GREY ════════ -->
+<div class="ps">
+  <span class="ps-lbl">We manage listings across</span>
+  <div class="pbadge"><div class="pi">M4U</div>Machines4U</div>
+  <span class="ps-sep">·</span>
+  <div class="pbadge"><div class="pi">IS</div>Industry Search</div>
+  <span class="ps-sep">·</span>
+  <div class="pbadge"><div class="pi">AG</div>AgTrader</div>
+  <span class="ps-sep">·</span>
+  <div class="pbadge"><div class="pi">TE</div>TradeEarthmovers</div>
+  <span class="ps-sep">·</span>
+  <div class="pbadge"><div class="pi">TT</div>TradeTrucks</div>
+  <span class="ps-sep">·</span>
+  <div class="pbadge"><div class="pi">HH</div>HospitalityHub</div>
+  <span class="ps-sep">·</span>
+  <div class="pbadge"><div class="pi">MS</div>MedSearch</div>
+</div>
+
+<!-- ════════ S1: PROBLEM — WHITE ════════ -->
+<div class="sec bg-white prob-intro" id="problem">
+  <div class="sec-in">
+    <div class="ey rv">Why The Phone Isn't Ringing</div>
+    <h2 class="rv d1">A Buyer Searched For Your Machine<br><span class="ac">This Morning. They Found Someone Else.</span></h2>
+    <p class="sdesc rv d2">It wasn't your price. It wasn't your stock. It was your listing. Here is exactly what happened — and why it keeps happening every single day you leave it unmanaged.</p>
+    <div class="prob-grid rv d2">
+      <div class="prob-card">
+        <div class="prob-num">Problem 01</div>
+        <h4>The Filter Trap</h4>
+        <p>A facility manager in Sydney filters Industry Search for a ride-on scrubber with a 900mm scrub path. Your machine has exactly that. But your listing never filled in that field — so to that buyer, your machine does not exist. They call someone else. You never know it happened.</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-num">Problem 02</div>
+        <h4>The Page 5 Death Spiral</h4>
+        <p>Your listing went live three weeks ago — on Page 1. Today it is on Page 4. By next week, Page 7. Nobody put it there deliberately. It just sank while you were busy doing what you're supposed to be doing: running the yard. Meanwhile, the call that should have been yours went to whoever showed up first.</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-num">Problem 03</div>
+        <h4>The Competitor Snatch</h4>
+        <p>A buyer clicks your listing. The photo is a blurry yard shot taken on a cloudy Tuesday. No price. Two specs filled in out of thirty. They click "Back" in two seconds — and land on your competitor's listing: clean photos, full specs, priced clearly. That sale was already yours. Until it wasn't.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ S2: WHAT WE DO — LIGHT GREY ════════ -->
+<div class="sec bg-lgrey" id="what-we-do">
+  <div class="sec-in">
+    <div class="ey rv">What Changes On Day One</div>
+    <h2 class="rv d1">You Send Us a Photo.<br><span class="ac">We Do Everything Else.</span></h2>
+    <p class="sdesc rv d2">No dashboards. No logins. No training your staff on portal backends. The moment a machine lands in your yard, one WhatsApp or email is your entire job. Here is what happens on our end.</p>
+    <div class="wedo-grid rv d2">
+      <div class="wedo-card">
+        <div class="wedo-n">01</div>
+        <h4>Your Machine Shows Up When Buyers Filter</h4>
+        <p>Right now, 60–80% of the filter fields on your listings are empty. A buyer who filters by hydraulic flow rate, scrub width, or GVM never sees you. We fill every field — from the spec plate — so the next time that filter runs, you're there.</p>
+      </div>
+      <div class="wedo-card">
+        <div class="wedo-n">02</div>
+        <h4>Your Stock Stops Sitting</h4>
+        <p>You're paying for subscriptions that aren't working — not because the platform is broken, but because your listings were never properly set up. After we're done, the machines that were invisible for months start getting calls within days.</p>
+      </div>
+      <div class="wedo-card">
+        <div class="wedo-n">03</div>
+        <h4>Your Backlog Disappears</h4>
+        <p>That pile of newly arrived stock that never gets listed properly because your team is too busy closing deals — send us the photos and we clear it. Every machine live, fully mapped, and ranking within 24 hours of you sending a single message.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ S3: PLATFORM INTEL — DARK ════════ -->
+<div class="sec bg-dark">
+  <div class="sec-in">
+    <div class="ey ey-lt rv">What You've Already Paid For</div>
+    <h2 class="wh rv d1">You're Paying Full Price<br><span class="ac">For a Platform You're Using at 40%.</span></h2>
+    <p class="sdesc lt rv d2">Machines4U and Industry Search are not broken. Your subscription is not wasted. The tools that would put you on Page 1 are already inside your account — they just haven't been switched on. Here is what happens when we do.</p>
+    <div class="hf-wrap rv d2">
+      <div class="hf-tag">🔓 Already Inside Your Subscription</div>
+      <h3>Three Things That Change The Moment We Activate Your Account Properly</h3>
+      <p>These are not add-ons. You are not paying extra for them. They are features your portal subscription already includes — that have been sitting unused since the day you signed up.</p>
+      <div class="hf-items">
+        <div class="hf-item">
+          <h5>📈 <span>Your Website Gets Traffic It Never Had</span></h5>
+          <p>When your listings are fully mapped and your portal profile is active, buyers click through to your own website. Dealers we manage see their website referral traffic increase significantly — from buyers who would never have found them otherwise.</p>
+        </div>
+        <div class="hf-item">
+          <h5>🎯 <span>Your Phone Rings With Better Buyers</span></h5>
+          <p>The buyers who filter by specific specs — hydraulic capacity, scrub path width, GVM — are the buyers who have already decided what they want. They are not browsing. They are buying. You start showing up for those searches when every field is filled.</p>
+        </div>
+        <div class="hf-item">
+          <h5>💬 <span>More Enquiries Turn Into Sales</span></h5>
+          <p>A buyer who sees a complete listing — clean photos, full specs, clear price — arrives at the call already sold. A buyer who sees three specs and a blurry photo calls to ask questions, then calls three other dealers while they wait for your answer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ S4: WORKFLOW — WHITE ════════ -->
+<div class="sec bg-white">
+  <div class="sec-in">
+    <div class="ey rv">What Your Week Looks Like After MachineFlo</div>
+    <h2 class="rv d1">You Snap a Photo<br><span class="ac">Before You Drive Home.<br>Buyers Call By Morning.</span></h2>
+    <p class="sdesc rv d2">Your staff did not touch the listing portal once this week. Your phone rang 5 times. Here is what happened in between.</p>
+    <div class="wf-grid rv d2">
+      <div class="wf-step">
+        <div class="wf-n">01</div>
+        <h4>You Send One Message</h4>
+        <p>A new tipper arrives in your yard at 3pm. You snap the spec plate. You WhatsApp or email it to us before you lock the gate. <strong>That is your entire job done.</strong> You drive home. We start.</p>
+      </div>
+      <div class="wf-step">
+        <div class="wf-n">02</div>
+        <h4>We Map Every Field Buyers Actually Use</h4>
+        <p>We decode your spec plate and fill in the fields most dealers leave blank — GVM, payload, engine hours, fuel type, body dimensions. <strong>The next morning, when a buyer filters for exactly that spec, you are there.</strong> Your competitor is not.</p>
+      </div>
+      <div class="wf-step">
+        <div class="wf-n">03</div>
+        <h4>Your Listings Never Sink</h4>
+        <p>While you're on the yard doing deals, we are actively managing your listings so they never quietly drift to Page 4 while you're not looking. <strong>Your stock stays visible.</strong> The calls keep coming.</p>
+      </div>
+      <div class="wf-step">
+        <div class="wf-n">04</div>
+        <h4>Buyers Find You Before They Find Anyone Else</h4>
+        <p>We position your yard as the authority in your category on platforms like Industry Search — through content and optimisation that makes serious buyers choose your listing first, <strong>before they even consider picking up the phone to a competitor.</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ S5: FEATURES — LIGHT GREY ════════ -->
+<div class="sec bg-lgrey">
+  <div class="sec-in">
+    <div class="ey rv">What You Get</div>
+    <h2 class="rv d1">Done For You. <span class="ac">Every Single Day.</span></h2>
+    <div class="feat-grid rv d2">
+      <div class="fc">
+        <div class="fc-n">01</div>
+        <div class="fc-icon">🏆</div>
+        <h4>Priority Stock, Maximised</h4>
+        <p>Your highest-margin, fastest-moving machines get hand-optimised first — titles, drivetrain specs, keywords, and layout refined for maximum Page 1 exposure across your selected platforms.</p>
+      </div>
+      <div class="fc">
+        <div class="fc-n">02</div>
+        <div class="fc-icon">🔍</div>
+        <h4>Daily Optimisation</h4>
+        <p>You never lose your position. Your listing never gets buried. Keywords refreshed, hard filters remapped, Content Quality Scores maximised — every single day. Not set-and-forget.</p>
+      </div>
+      <div class="fc">
+        <div class="fc-n">03</div>
+        <div class="fc-icon">⚡</div>
+        <h4>Spotlight &amp; Credit Management</h4>
+        <p>We actively manage your Spotlight, Featured, and Hot Deals credits to keep your stock visible — instead of leaving them sitting on the platform's default Autoboost cycle.</p>
+      </div>
+      <div class="fc">
+        <div class="fc-n">04</div>
+        <div class="fc-icon">📸</div>
+        <h4>Image Cleanups &amp; Spec Overlays</h4>
+        <p>We crop, sharpen, and frame your raw yard photos — adding clear spec overlays so they pop on busy search grids. No more blurry shots losing your first impression.</p>
+      </div>
+      <div class="fc">
+        <div class="fc-n">05</div>
+        <div class="fc-icon">📊</div>
+        <h4>Content Quality Score</h4>
+        <p>Marketplace algorithms rank listings by data completeness. A low score suppresses your visibility regardless of boost spending. We maximise yours on every ad, every time.</p>
+      </div>
+      <div class="fc">
+        <div class="fc-n">06</div>
+        <div class="fc-icon">✍️</div>
+        <h4>Platform Content &amp; Articles</h4>
+        <p>Professionally drafted industry articles and content published under your brand — building Google authority and positioning your yard as the regional market leader. Pricing based on volume and platform requirements.</p>
+        <div class="art-cta">
+          <p>Ready to get started with platform content?</p>
+          <a href="https://wa.me/61XXXXXXXX/?text=I%20want%20a%20quote%20for%20platform%20content" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Request Content Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ S6: PRICING — WHITE ════════ -->
+<div class="sec bg-white" id="pricing">
+  <div class="sec-in">
+    <div class="ey rv">The Math</div>
+    <h2 class="rv d1">Why This Makes <span class="ac">Complete Sense.</span></h2>
+    <p class="sdesc rv d2">Your team's job is running the physical yard and talking to buyers. Moving data onto marketplace backends wastes hours and kills momentum. Here is how the math stacks up:</p>
+    <div class="cmp-scroll-hint">← Swipe to see full comparison →</div>
+    <div class="cmp-wrap rv d2">
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="cb">❌ Part-Time Hire</th>
+            <th class="cg">✦ MachineFlo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Weekly Cost</td>
+            <td class="cb"><span class="bign cost-bad">$400–700+</span>in wages per week</td>
+            <td class="cg"><span class="bign cost-good">$92–$230</span>flat per week</td>
+          </tr>
+          <tr>
+            <td>Effort</td>
+            <td class="cb">Train them, manage them, then they leave</td>
+            <td class="cg">We manage ourselves. Day One expertise. Zero hand-holding.</td>
+          </tr>
+          <tr>
+            <td>Speed</td>
+            <td class="cb">Weeks to recruit and onboard</td>
+            <td class="cg"><strong>WhatsApp or email today. Live within 24 hours.</strong></td>
+          </tr>
+          <tr>
+            <td>Filter Mapping</td>
+            <td class="cb">Photo uploads only. Hard filters left empty.</td>
+            <td class="cg"><strong>Every technical spec mapped precisely.</strong></td>
+          </tr>
+          <tr>
+            <td>Commitment</td>
+            <td class="cb">Employment contract, notice periods, entitlements</td>
+            <td class="cg"><strong>Month-to-month. Cancel anytime. No fine print.</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="roi-block rv">
+      <div class="roi-in">
+        <div class="roi-ico">📞</div>
+        <div>
+          <div class="roi-pre">The Maths Every Dealer Needs To Hear Once</div>
+          <div class="roi-main">One Sale Pays For MachineFlo<br>For The Next <em>Five Years.</em></div>
+          <div class="roi-sub">Think about the last machine you sold. Now imagine that buyer found you because your listing showed up first in a filtered search they ran at 7am on a Tuesday — a search your listing would never have appeared in before MachineFlo. That one call. That one sale. It just covered your entire subscription until 2030. Every call after that is money your competitors used to take from you.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ S7: REVIEWS — LIGHT GREY ════════ -->
+<div class="sec bg-lgrey" id="reviews">
+  <div class="sec-in">
+    <div class="ey rv">What Clients Say</div>
+    <h2 class="rv d1">Real Yards. <span class="ac">Real Results.</span></h2>
+    <div class="reviews-grid rv d2">
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">We were getting 3 to 4 leads a month on Industry Search and couldn't figure out why. MachineFlo audited our listings and found almost none of our technical filter fields were filled in. Within 8 weeks we were consistently hitting 16 to 18 leads per month.</p>
+        <div class="rv-author"><div class="rv-avatar">JH</div><div><div class="rv-name">J.H.</div><div class="rv-role">Head of Marketing — Floor Scrubber &amp; Sweeper Hire, VIC</div></div></div>
+        <div class="rv-platform">Industry Search</div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">We had 47 machines on Machines4U getting 3–4 calls a week. Within 6 weeks of MachineFlo taking over, we were at 12–15. The difference was purely the filter mapping — buyers were finding us who never would have before.</p>
+        <div class="rv-author"><div class="rv-avatar">DM</div><div><div class="rv-name">D.M.</div><div class="rv-role">Owner — Earthmoving Dealership, QLD</div></div></div>
+        <div class="rv-platform">Machines4U</div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">I was paying $1,800 a month to Industry Search and getting almost nothing back. MachineFlo told me 70% of my listings had empty spec fields. One month later my enquiry rate had tripled.</p>
+        <div class="rv-author"><div class="rv-avatar">SK</div><div><div class="rv-name">S.K.</div><div class="rv-role">Director — Material Handling Equipment, VIC</div></div></div>
+        <div class="rv-platform">Industry Search</div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">The workflow is the best part. I snap the spec plate, send it via WhatsApp or email, and the listing is live and optimised the next morning. That time saving alone is worth every cent.</p>
+        <div class="rv-author"><div class="rv-avatar">TR</div><div><div class="rv-name">T.R.</div><div class="rv-role">General Manager — Transport Fleet Disposal, NSW</div></div></div>
+        <div class="rv-platform">Machines4U + TradeTrucks</div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">Cancelled a $45K/year marketing retainer after 90 days with MachineFlo. The ROI is not even close. One excavator sale covered the entire year's fee. Daily Spotlight management keeps our stock at the top.</p>
+        <div class="rv-author"><div class="rv-avatar">BH</div><div><div class="rv-name">B.H.</div><div class="rv-role">Owner — Heavy Plant &amp; Excavator Sales, SA</div></div></div>
+        <div class="rv-platform">Machines4U + AgTrader</div>
+      </div>
+      <div class="rv-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">As a smaller yard I couldn't afford a dedicated marketing person. MachineFlo gave me the same capability a large dealer has — daily optimisation, proper listings, full platform visibility — for a fraction of the cost.</p>
+        <div class="rv-author"><div class="rv-avatar">JW</div><div><div class="rv-name">J.W.</div><div class="rv-role">Principal — Agricultural Machinery, TAS</div></div></div>
+        <div class="rv-platform">AgTrader + Machines4U</div>
+      </div>
+    </div>
+    <div class="trust-bar rv">
+      <div class="trust-item"><div class="trust-num">4×</div><div class="trust-lbl">Average increase in monthly leads within 60 days</div></div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><div class="trust-num">24hrs</div><div class="trust-lbl">Guaranteed listing turnaround after asset received</div></div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><div class="trust-num">60–80%</div><div class="trust-lbl">Of dealer listings have empty technical filter fields</div></div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><div class="trust-num">5×</div><div class="trust-lbl">More impressions for Spotlight-managed listings</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ S8: AUDIT FORM — BLUE ════════ -->
+<div class="cta-sec" id="audit">
+  <div class="cta-in">
+    <div class="ey ey-lt rv" style="justify-content:center;">Free Yard Data Audit</div>
+    <h2 class="wh rv d1">Find Out Which Of Your Machines<br>Are Invisible To Buyers Right Now.</h2>
+    <p class="cta-sub rv d2">We will scan your live listings, identify every filter field that is empty, and send you a 3-page breakdown showing exactly which machines buyers cannot find — and why. Takes 30 seconds to request. Delivered within 24 hours. Free.</p>
+    <div class="intake-form rv d2">
+      <div class="intake-grid">
+        <div class="intake-field">
+          <label class="intake-label">Your Name</label>
+          <input type="text" class="intake-input" placeholder="e.g. James Whitfield">
+        </div>
+        <div class="intake-field">
+          <label class="intake-label">Dealership Name</label>
+          <input type="text" class="intake-input" placeholder="e.g. Whitfield Plant &amp; Equipment">
+        </div>
+        <div class="intake-field">
+          <label class="intake-label">Business Email</label>
+          <input type="email" class="intake-input" placeholder="james@youryard.com.au">
+        </div>
+        <div class="intake-field">
+          <label class="intake-label">Your Main Listing URL</label>
+          <input type="url" class="intake-input" placeholder="e.g. your Machines4U store link">
+        </div>
+      </div>
+      <button type="button" class="intake-btn">Run My Free Inventory Audit ➔</button>
+      <p class="intake-note">No lock-in. No sales call. A 3-page data breakdown in your inbox within 24 hours.</p>
+    </div>
+    <div style="margin-top:14px;">
+      <a href="mailto:sales@machineflo.com.au" class="btn-email">Email Us Instead →</a>
+    </div>
+    <p class="cta-email-note rv" style="margin-top:10px;">Prefer email? Send details to <strong>sales@machineflo.com.au</strong></p>
+  </div>
+</div>
+
+<!-- ════════ FAQ — DARK ════════ -->
+<div class="faq-sec" id="faq">
+  <div class="faq-inner">
+    <div class="faq-ey">Frequently Asked Questions</div>
+    <h2 class="faq-h">Quick Answers <span>Before You Start.</span></h2>
+    <p class="faq-sub">The questions every dealer asks before getting started.</p>
+    <div class="faq-item">
+      <div class="faq-q" onclick="tFaq(this)"><span>Do I have to give your team my master passwords to Machines4U or Trucksales?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">No, never. Most major heavy machinery portals allow you to create a restricted "Editor" or "Staff" account. You simply invite our team as an editor. We can build, format, and optimise your listings — but we have zero access to your billing details, main account settings, or company data. Your security is 100% protected.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="tFaq(this)"><span>How do I get my raw equipment photos and specs to MachineFlo?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">It takes less than 60 seconds. The moment a new truck or machine lands in your yard, snap the photos on your phone and send them via WhatsApp or email to your assigned account manager. Our backend system automatically captures, organises, and passes them to our editing team instantly — whichever method you prefer.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="tFaq(this)"><span>How fast do listings go live after I send you the assets?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">We guarantee a turnaround time of under 24 hours. Once your raw photos and model numbers land in our system, our specialised editors clean the images, map the data sheets, cross-reference spec numbers, and push the optimised listings live across your chosen platforms — while you focus on running the yard.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="tFaq(this)"><span>What happens if I want to cancel my 90-day pilot trial?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">There are no lock-in contracts or hidden cancellation fees. We offer our 90-day introductory pilot so you can see the direct impact on your lead volume without any corporate risk. If you choose not to continue after 90 days, you can walk away with a single click.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="tFaq(this)"><span>Can you manage listings on multiple platforms simultaneously?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">Yes. Whether you list exclusively on Machines4U, or spread your inventory across Industry Search, AgTrader, Trucksales, TradeEarthmovers, HospitalityHub, or MedSearch, our editing team maps your data to match the strict algorithm requirements of every individual platform simultaneously.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ FOOTER — DARK2 ════════ -->
+<footer id="contact">
+  <div class="ft-main">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">MACHINE<em>FLO</em></div>
+        <p class="ft-brand-desc">Marketplace Optimisation for Heavy Machinery Dealers — Australia-Wide. We manage the data flow of your machinery so your inventory turns into cash flow faster.</p>
+      </div>
+      <div class="ft-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#problem">The Problem</a></li>
+          <li><a href="#what-we-do">What We Do</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#audit">Free Audit</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Contact Us</h5>
+        <a href="tel:+61435466558" class="ft-contact-num">📞 +61 435 466 558</a>
+        <a href="mailto:sales@machineflo.com.au" class="ft-contact-email">sales@machineflo.com.au</a>
+        <ul style="margin-top:14px;">
+          <li><a href="https://wa.me/61XXXXXXXX/?text=I%20want%20a%20free%20listing%20audit%20for%20my%20yard" target="_blank">WhatsApp Us</a></li>
+          <li><a href="#audit">Request a Quote</a></li>
+          <li><a href="#audit">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ft-divider"></div>
+  <div class="ft-bottom">
+    <span class="ft-copy">© 2026 MachineFlo. All rights reserved.</span>
+    <div class="ft-links">
+      <a href="machineflo-privacy.html">Privacy Policy</a>
+      <a href="machineflo-terms.html">Terms of Service</a>
+      <a href="machineflo-disclaimer.html">Disclaimer</a>
+      <a href="#audit">Contact Us</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════ DISCLAIMER ════════ -->
+<!-- <div class="disclaimer">
+  <p><a href="machineflo-disclaimer.html" style="color:rgba(255,255,255,.4);text-decoration:none;">Full Disclaimer</a> &nbsp;|&nbsp; MachineFlo is an independent listing optimisation consultancy. We are not legally affiliated with, endorsed by, or official partners of Machines4U, Industry Search, AgTrader, TradeEarthmovers, TradeTrucks, HospitalityHub, MedSearch, Trucksales, or the Carsales Network. All platform names, logos, and trademarks remain the exclusive property of their respective owners. Results mentioned on this page reflect individual client experiences and are not a guarantee of future performance. Introductory pricing applies for new clients only and is available for a limited period.</p>
+</div> -->
+
+<script>
+function tFaq(el){
+  var open=el.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(function(q){q.classList.remove('open');});
+  document.querySelectorAll('.faq-a').forEach(function(a){a.classList.remove('open');});
+  if(!open){el.classList.add('open');el.nextElementSibling.classList.add('open');}
+}
+function sw(p){
+  ['one','two','three'].forEach(function(id){
+    var b=document.getElementById('p-'+id);
+    b.classList.remove('show');b.style.display='none';
+  });
+  document.querySelectorAll('.ptab').forEach(function(t){t.classList.remove('on');});
+  document.getElementById('p-'+p).classList.add('show');
+  document.getElementById('p-'+p).style.display='block';
+  var i={'one':0,'two':1,'three':2};
+  document.querySelectorAll('.ptab')[i[p]].classList.add('on');
+}
+const obs=new IntersectionObserver(function(en){
+  en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
+},{threshold:0.06});
+document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>
