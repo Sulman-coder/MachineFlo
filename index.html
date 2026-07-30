@@ -92,7 +92,10 @@ nav{
 h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(40px,5.5vw,70px);line-height:.97;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:16px;}
 h1 .hl{color:#90CAF9;}
 .hero-sub{font-size:17px;color:rgba(255,255,255,.78);margin-bottom:32px;line-height:1.6;max-width:520px;}
-.hero-ctas{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.hero-norisk{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-left:3px solid #90CAF9;padding:14px 18px;margin-bottom:28px;border-radius:0 4px 4px 0;max-width:520px;}
+.hero-norisk-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.hero-norisk p{font-size:14px;color:rgba(255,255,255,.8);line-height:1.6;}
+.hero-norisk strong{color:#fff;font-weight:700;}
 
 /* CTA buttons */
 .btn-white{background:#fff;color:var(--blue);font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:.07em;text-transform:uppercase;padding:13px 30px;text-decoration:none;display:inline-block;transition:background .18s,transform .15s;border-radius:3px;}
@@ -179,7 +182,15 @@ h2.wh .ac{color:#90CAF9;}
   background:linear-gradient(180deg, #E8EEF7 0%, var(--white) 120px);
   padding-top:0;
 }
-.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+.norisk-bar{display:flex;align-items:flex-start;gap:16px;background:var(--blue-lt);border:1px solid var(--border);border-left:4px solid var(--blue);padding:20px 28px;border-radius:0 5px 5px 0;font-size:15px;color:var(--dark);line-height:1.65;margin:32px 0;}
+.norisk-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.norisk-bar strong{color:var(--blue);font-weight:700;}
+.competitor-strip{background:var(--blue);border-radius:5px;padding:20px 28px;margin:28px 0 0;position:relative;overflow:hidden;}
+.competitor-strip::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px;background:#90CAF9;}
+.competitor-strip-inner{display:flex;align-items:flex-start;gap:16px;}
+.competitor-icon{font-size:24px;flex-shrink:0;margin-top:2px;}
+.competitor-strip p{font-size:16px;color:#fff;line-height:1.65;font-weight:500;}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}
 .prob-card{
   background:#FFFFFF;border:1px solid #D8E2EF;
   border-top:3px solid var(--blue);
@@ -441,15 +452,11 @@ footer{background:var(--dark2);}
 <div class="hero">
   <div class="hero-in">
     <div>
-      <div class="hero-badge"><div class="dot"></div> Right Now, A Buyer Is Searching For Your Machine. Are You Showing Up?</div>
-      <h1>A Buyer Searched<br>For Your Machine<br><span class="hl">At 9am. Did They<br>Find You?</span></h1>
-      <p class="hero-sub">Most dealers are paying thousands in marketplace subscriptions and getting three calls a week. Our clients send us a photo before they leave the yard. By the next morning, the listing is live, optimised, and ranking. By lunchtime, the phone rings.</p>
+      <div class="hero-badge"><div class="dot"></div> Most dealers are listed. Very few are found.</div>
+      <h1>Your Competitor Has<br>The Exact Same Machines.<br><span class="hl">He Got 6 Calls This Week.<br>You Got ONE.</span></h1>
+      <p class="hero-sub">Same stock, different results. It wasn't your price. It wasn't your stock.<br><br>Your listings are simply hidden from buyers using online filters and specific search terms. We find exactly which of your machines are invisible right now — and show you why.</p>
       <div class="hero-ctas">
         <a href="#audit" class="btn-white">Request Free Inventory Audit →</a>
-        <button type="button" class="btn-ghost">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6zm2-5h8v1.5H8V15zm0-3h8v1.5H8V12zm0-3h4v1.5H8V9z"/></svg>
-          View Sample Audit Report
-        </button>
       </div>
     </div>
 
@@ -488,11 +495,11 @@ footer{background:var(--dark2);}
 
       <div class="pbox" id="p-three">
         <div class="p-lim gold">🏆 The Ultimate Industrial Package</div>
-        <div class="p-lbl">Triple-Platform Powerhouse</div>
+        <div class="p-lbl">Multi-Platform Powerhouse</div>
         <div class="p-was">Normally $1,499 / month</div>
         <div class="p-price"><sup>$</sup>999<sub> / mo</sub></div>
         <div class="p-wk">= Just $230 per week</div>
-        <div class="p-desc">Three major platforms — complete digital management for large dealerships, brokers, and national OEMs.</div>
+        <div class="p-desc">Complete digital management across your chosen platforms — built for large dealerships, brokers, and national OEMs who need maximum market coverage.</div>
         <div class="p-cap">📋 Up to 60 active listings</div>
         <p class="p-note">Need more listings? Request a custom quote.</p>
         <a href="#audit" class="btn-enquire">Enquire Now →</a>
@@ -532,54 +539,36 @@ footer{background:var(--dark2);}
 <!-- ════════ S1: PROBLEM — WHITE ════════ -->
 <div class="sec bg-white prob-intro" id="problem">
   <div class="sec-in">
-    <div class="ey rv">Why The Phone Isn't Ringing</div>
-    <h2 class="rv d1">A Buyer Searched For Your Machine<br><span class="ac">This Morning. They Found Someone Else.</span></h2>
-    <p class="sdesc rv d2">It wasn't your price. It wasn't your stock. It was your listing. Here is exactly what happened — and why it keeps happening every single day you leave it unmanaged.</p>
+    <div class="ey rv">The Problem</div>
+    <h2 class="rv d1">How Independent Dealers Lose<br><span class="ac">Leads On The Portals</span></h2>
+
+    <div class="competitor-strip rv">
+      <div class="competitor-strip-inner">
+        <span class="competitor-icon">📞</span>
+        <p>Your competitor isn't out-selling you, and they aren't beating you on price. They are just winning the platform's algorithm. Here is exactly how listings get buried behind your back:</p>
+      </div>
+    </div>
     <div class="prob-grid rv d2">
       <div class="prob-card">
-        <div class="prob-num">Problem 01</div>
+        <div class="prob-num">Column 01</div>
         <h4>The Filter Trap</h4>
-        <p>A facility manager in Sydney filters Industry Search for a ride-on scrubber with a 900mm scrub path. Your machine has exactly that. But your listing never filled in that field — so to that buyer, your machine does not exist. They call someone else. You never know it happened.</p>
+        <p>A contractor filters for a 5-tonne excavator with a hydraulic hitch — or a warehouse manager searches for a 2.5t container-mast forklift. Your machine has those exact specs. But because those filter fields were left blank on upload and search terms were never updated, your machine completely vanishes from the results. To that buyer, you don't exist.</p>
       </div>
       <div class="prob-card">
-        <div class="prob-num">Problem 02</div>
+        <div class="prob-num">Column 02</div>
         <h4>The Page 5 Death Spiral</h4>
-        <p>Your listing went live three weeks ago — on Page 1. Today it is on Page 4. By next week, Page 7. Nobody put it there deliberately. It just sank while you were busy doing what you're supposed to be doing: running the yard. Meanwhile, the call that should have been yours went to whoever showed up first.</p>
+        <p>Your listing went live three weeks ago — on Page 1. Today it is on Page 5. By next week, Page 7. Nobody put it there deliberately; it just sank while you were busy running the physical yard. Meanwhile, the phone call that should have been yours went to whoever showed up on Page 1 first.</p>
       </div>
       <div class="prob-card">
-        <div class="prob-num">Problem 03</div>
+        <div class="prob-num">Column 03</div>
         <h4>The Competitor Snatch</h4>
-        <p>A buyer clicks your listing. The photo is a blurry yard shot taken on a cloudy Tuesday. No price. Two specs filled in out of thirty. They click "Back" in two seconds — and land on your competitor's listing: clean photos, full specs, priced clearly. That sale was already yours. Until it wasn't.</p>
+        <p>A buyer clicks your listing. The photo is a blurry yard shot taken on a cloudy Tuesday, or the price is missing. Two specs are filled out instead of thirty. They click "Back" in two seconds — and land straight on your competitor's listing with clean photos and full specs. That sale was already yours. Until it wasn't.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ════════ S2: WHAT WE DO — LIGHT GREY ════════ -->
-<div class="sec bg-lgrey" id="what-we-do">
-  <div class="sec-in">
-    <div class="ey rv">What Changes On Day One</div>
-    <h2 class="rv d1">You Send Us a Photo.<br><span class="ac">We Do Everything Else.</span></h2>
-    <p class="sdesc rv d2">No dashboards. No logins. No training your staff on portal backends. The moment a machine lands in your yard, one WhatsApp or email is your entire job. Here is what happens on our end.</p>
-    <div class="wedo-grid rv d2">
-      <div class="wedo-card">
-        <div class="wedo-n">01</div>
-        <h4>Your Machine Shows Up When Buyers Filter</h4>
-        <p>Right now, 60–80% of the filter fields on your listings are empty. A buyer who filters by hydraulic flow rate, scrub width, or GVM never sees you. We fill every field — from the spec plate — so the next time that filter runs, you're there.</p>
-      </div>
-      <div class="wedo-card">
-        <div class="wedo-n">02</div>
-        <h4>Your Stock Stops Sitting</h4>
-        <p>You're paying for subscriptions that aren't working — not because the platform is broken, but because your listings were never properly set up. After we're done, the machines that were invisible for months start getting calls within days.</p>
-      </div>
-      <div class="wedo-card">
-        <div class="wedo-n">03</div>
-        <h4>Your Backlog Disappears</h4>
-        <p>That pile of newly arrived stock that never gets listed properly because your team is too busy closing deals — send us the photos and we clear it. Every machine live, fully mapped, and ranking within 24 hours of you sending a single message.</p>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <!-- ════════ S3: PLATFORM INTEL — DARK ════════ -->
 <div class="sec bg-dark">
@@ -705,34 +694,39 @@ footer{background:var(--dark2);}
         <thead>
           <tr>
             <th>Feature</th>
-            <th class="cb">❌ Part-Time Hire</th>
+            <th class="cb">✕ In-House Team</th>
             <th class="cg">✦ MachineFlo</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Weekly Cost</td>
-            <td class="cb"><span class="bign cost-bad">$400–700+</span>in wages per week</td>
-            <td class="cg"><span class="bign cost-good">$92–$230</span>flat per week</td>
+            <td>Time Wasted</td>
+            <td class="cb"><span class="bign cost-bad">6–10 hrs</span>/week pulled from sales &amp; admin duties</td>
+            <td class="cg"><span class="bign cost-good">0 hrs</span>from your team — fully done for you</td>
           </tr>
           <tr>
-            <td>Effort</td>
-            <td class="cb">Train them, manage them, then they leave</td>
-            <td class="cg">We manage ourselves. Day One expertise. Zero hand-holding.</td>
+            <td>True Weekly Cost</td>
+            <td class="cb"><span class="bign cost-bad">$210–$350+</span>in lost productivity, at $35/hr</td>
+            <td class="cg"><span class="bign cost-good">$92–$230</span>flat, no hidden hours</td>
           </tr>
           <tr>
-            <td>Speed</td>
-            <td class="cb">Weeks to recruit and onboard</td>
-            <td class="cg"><strong>WhatsApp or email today. Live within 24 hours.</strong></td>
+            <td>SEO Expertise</td>
+            <td class="cb">Not SEO experts. No idea how platform search algorithms actually rank listings.</td>
+            <td class="cg"><strong>Specialists who track every platform's ranking algorithm, daily.</strong></td>
           </tr>
           <tr>
             <td>Filter Mapping</td>
-            <td class="cb">Photo uploads only. Hard filters left empty.</td>
-            <td class="cg"><strong>Every technical spec mapped precisely.</strong></td>
+            <td class="cb">Can upload photos and a title — but doesn't understand how platform SEO works, so technical filter fields sit empty.</td>
+            <td class="cg"><strong>Every technical spec mapped precisely — the exact fields buyers filter by.</strong></td>
+          </tr>
+          <tr>
+            <td>Ramp-Up Time</td>
+            <td class="cb">Weeks learning each platform's quirks, still guessing at what moves rankings</td>
+            <td class="cg"><strong>Live within 24 hours. Day One expertise.</strong></td>
           </tr>
           <tr>
             <td>Commitment</td>
-            <td class="cb">Employment contract, notice periods, entitlements</td>
+            <td class="cb">Whoever is "covering" listings today has ten other priorities tomorrow</td>
             <td class="cg"><strong>Month-to-month. Cancel anytime. No fine print.</strong></td>
           </tr>
         </tbody>
@@ -746,6 +740,18 @@ footer{background:var(--dark2);}
           <div class="roi-main">One Sale Pays For MachineFlo<br>For The Next <em>Five Years.</em></div>
           <div class="roi-sub">Think about the last machine you sold. Now imagine that buyer found you because your listing showed up first in a filtered search they ran at 7am on a Tuesday — a search your listing would never have appeared in before MachineFlo. That one call. That one sale. It just covered your entire subscription until 2030. Every call after that is money your competitors used to take from you.</div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ NO-RISK CLAUSE ════════ -->
+<div class="sec bg-white" style="padding-top:0;padding-bottom:0;">
+  <div class="sec-in">
+    <div class="norisk-bar rv">
+      <div class="norisk-icon">🛡️</div>
+      <div>
+        <strong>The No-Risk Clause:</strong> Month-to-month. No lock-in contract. If you don't see more lead activity in 90 days, cancel with one message — no questions asked.
       </div>
     </div>
   </div>
@@ -832,7 +838,7 @@ footer{background:var(--dark2);}
         </div>
       </div>
       <button type="button" class="intake-btn">Run My Free Inventory Audit ➔</button>
-      <p class="intake-note">No lock-in. No sales call. A 3-page data breakdown in your inbox within 24 hours.</p>
+      <p class="intake-note">No lock-in. No sales call. We will send you a breakdown of exactly which listings are invisible and why — in your inbox within 24 hours.</p>
     </div>
     <div style="margin-top:14px;">
       <a href="mailto:sales@machineflo.com.au" class="btn-email">Email Us Instead →</a>
