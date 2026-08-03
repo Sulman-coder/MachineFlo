@@ -1120,6 +1120,7 @@ chatToggle.onclick = function () {
     chatMenu.classList.toggle("active");
 };
 
+
 // document.getElementById("liveChatBtn").onclick = function(e){
 //     e.preventDefault();
 
@@ -1127,7 +1128,6 @@ chatToggle.onclick = function () {
 //         Tawk_API.maximize();
 //     }
 // };
-
 document.addEventListener("click",function(e){
     if(!chatMenu.contains(e.target)){
         chatMenu.classList.remove("active");
