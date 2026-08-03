@@ -1121,13 +1121,13 @@ chatToggle.onclick = function () {
 };
 
 
-// document.getElementById("liveChatBtn").onclick = function(e){
-//     e.preventDefault();
+ document.getElementById("liveChatBtn").onclick = function(e){
+    e.preventDefault();
 
-//     if(window.Tawk_API){
-//         Tawk_API.maximize();
-//     }
-// };
+    if(window.Tawk_API){
+         Tawk_API.maximize();
+     }
+ };
 document.addEventListener("click",function(e){
     if(!chatMenu.contains(e.target)){
         chatMenu.classList.remove("active");
